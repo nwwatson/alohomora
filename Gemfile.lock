@@ -3,6 +3,7 @@ PATH
   specs:
     alohomora (0.0.1)
       rails (~> 3.2.1)
+      warden (~> 1.1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -143,6 +144,8 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.31)
+    warden (1.1.1)
+      rack (>= 1.0)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
