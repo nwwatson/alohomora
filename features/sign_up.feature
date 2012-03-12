@@ -11,8 +11,8 @@ Feature: Sign up
     Scenario: User signs up with valid data
       And I fill in the following:
         | Email                 | test@entropisoftware.com  |
-        | First Name            | Wasting                   |
-        | Last Name             | Light                     |
+        | First name            | Wasting                   |
+        | Last name             | Light                     |
         | Organization          | Entropi Software          |
         | Password              | please                    |
         | Password confirmation | please                    |

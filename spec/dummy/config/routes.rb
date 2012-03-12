@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-
-  mount Alohomora::Engine => "/alohomora"
+  
+  root :to => 'welcome#index'
 end

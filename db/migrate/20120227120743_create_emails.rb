@@ -4,7 +4,6 @@ class CreateEmails < ActiveRecord::Migration
       t.string :address
       t.integer :account_id
       t.integer :organization_id
-
       t.timestamps
     end
   end
