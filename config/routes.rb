@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  
+
   resources :accounts
+  
+  namespace :accounts do
+    resources :verifiactions, only: ["index", "create"]
+  end
+  
   resources :sessions
   
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do

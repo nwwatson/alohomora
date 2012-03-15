@@ -4,6 +4,7 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
       t.string :password_digest
+      t.string :verification_code
       t.timestamps
     end
   end

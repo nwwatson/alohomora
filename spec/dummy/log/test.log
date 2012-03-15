@@ -282,3 +282,169 @@ Processing by AccountsController#create as HTML
   Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations"=>{"name"=>"Entropi Software"}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
 Completed 500 Internal Server Error in 1ms
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-14 08:22:20 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:22:20 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:22:20 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-14 08:22:20 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 52ms (Views: 9.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-14 08:23:44 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:23:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 10ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:23:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-14 08:23:44 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 56ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2012-03-14 08:23:44 -0400
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (17.6ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 97ms (Views: 3.4ms | ActiveRecord: 17.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-14 08:43:44 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:43:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:43:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-14 08:43:44 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 58ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2012-03-14 08:43:44 -0400
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 80ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-14 08:45:15 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:45:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 08:45:15 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-14 08:45:15 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 56ms (Views: 8.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2012-03-14 08:45:15 -0400
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 78ms (Views: 3.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-14 09:28:37 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 09:28:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 9ms (Views: 8.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-14 09:28:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-14 09:28:37 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 59ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2012-03-14 09:28:37 -0400
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 79ms (Views: 3.8ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
