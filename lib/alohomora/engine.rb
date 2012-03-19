@@ -1,4 +1,5 @@
 require 'warden'
+require 'alohomora/controllers/helpers'
 require 'alohomora/strategies/password_authenticatable'
 
 module Alohomora
@@ -9,6 +10,10 @@ module Alohomora
         manager.default_strategies :password_authenticatable
         manager.failure_app = lambda { |env| SessionsController.action(:new).call(env) }
       end
+    end
+    
+    initializer "alohomora.extend.action_controller" do |app|
+      ActionController::Base.send(:include, Alohomora::Controllers::Helpers)
     end
     
   end

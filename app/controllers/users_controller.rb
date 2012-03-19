@@ -10,7 +10,8 @@ class UsersController < ApplicationController
     if @user.save
       warden.set_user(@user)
       
-      set_flash_message :signed_up_but_unconfirmed
+      
+      flash[:notice] = I18n.t("alohomora.users.signed_up_but_unconfirmed")
       
       redirect_to users_verifiactions_url
     else

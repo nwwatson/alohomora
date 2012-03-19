@@ -10,5 +10,5 @@ en:
         other: "%{count} errors prohibited this %{resource} from being saved:"
         
   alohomora:
-    accounts:
+    users:
       signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please follow the instructions given to activate your account.'

@@ -3,12 +3,14 @@ module Alohomora
     module Helpers
       extend ActiveSupport::Concern
       
-      # mark methods as helper methods
-      included do
-        
+      def self.included(base)
+        base.extend InstanceMethods 
+
+        # mark methods as helper methods
+        #helper_method :warden
       end
       
-      module ClassMethods
+      module InstanceMethods
         # The main accessor for the warden proxy instance
         def warden
           request.env['warden']
@@ -18,7 +20,7 @@ module Alohomora
         def current_user
           warden.user
         end
-         
+        
       end
     end
   end
