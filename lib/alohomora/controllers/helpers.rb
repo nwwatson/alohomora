@@ -21,6 +21,13 @@ module Alohomora
           warden.user
         end
         
+        # Returns True if the user is logged in, False if the user is logged out.
+        def signed_in?
+          warden.authenticate?
+        end
+        
+        
+        
       end
     end
   end

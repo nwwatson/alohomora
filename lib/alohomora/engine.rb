@@ -23,6 +23,6 @@ module Alohomora
   end
 
   Warden::Manager.serialize_from_session do |id|
-    Account.find(id)
+    User.find(id)
   end  
 end

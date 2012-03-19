@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       
       flash[:notice] = I18n.t("alohomora.users.signed_up_but_unconfirmed")
       
-      redirect_to users_verifiactions_url
+      redirect_to verifiactions_url
     else
       render "new"
     end

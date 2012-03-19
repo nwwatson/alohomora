@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
-  
-  namespace :users do
-    resources :verifiactions, only: ["index", "create"]
-  end
+  resources :verifiactions, only: ["index", "create"]
   
   resources :sessions
   
