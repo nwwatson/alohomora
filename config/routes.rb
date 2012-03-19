@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
 
-  resources :accounts
+  resources :users
   
-  namespace :accounts do
+  namespace :users do
     resources :verifiactions, only: ["index", "create"]
   end
   
   resources :sessions
   
   scope constraints: lambda { |r| r.env['warden'].user.nil? } do
-    get "signup", to: "accounts#new", as: "signup"
+    get "signup", to: "users#new", as: "signup"
     get "login", to: "sessions#new", as: "login"
   end
   

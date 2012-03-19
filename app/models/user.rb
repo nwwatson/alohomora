@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class User < ActiveRecord::Base
   #attr_accessible :email, :password, :password_confirmation, :emails_attributes, :organizations_attributes
   
   has_and_belongs_to_many :organizations

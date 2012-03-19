@@ -51,16 +51,16 @@ module Alohomora
       warden_config.default_scope = Alohomora.default_scope
       warden_config.intercept_401 = false
 
-      Devise.mappings.each_value do |mapping|
-        warden_config.scope_defaults mapping.name, :strategies => mapping.strategies
-      end
+#      Devise.mappings.each_value do |mapping|
+#        warden_config.scope_defaults mapping.name, :strategies => mapping.strategies
+#      end
 
       @@warden_config_block.try :call, Alohomora.warden_config
       true
     end
   end
   
-=end
+
 end
 
 

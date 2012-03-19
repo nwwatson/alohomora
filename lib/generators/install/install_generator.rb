@@ -6,10 +6,6 @@ module Alohomora
     class InstallGenerator < Base
       include ::Rails::Generators::Migration
       
-      def copy_initializers
-        copy_file 'alohomora.rb', 'config/initializers/alohomora.rb'
-      end
-      
       def add_gems
         add_gem "rails", "~> 3.2.1"
         add_gem "warden", "~> 1.1.1"

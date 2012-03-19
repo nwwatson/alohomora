@@ -448,3 +448,38 @@ Processing by AccountsController#create as HTML
   Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (2.7ms)
 Completed 200 OK in 79ms (Views: 3.8ms | ActiveRecord: 0.1ms)
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-15 13:53:04 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-15 13:53:04 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-15 13:53:04 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-15 13:53:04 -0400
+Processing by AccountsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 91ms (Views: 15.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2012-03-15 13:53:04 -0400
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "account"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (1.7ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/accounts/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 113ms (Views: 4.4ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
