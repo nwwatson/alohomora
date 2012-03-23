@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :users
-  resources :verifiactions, only: ["index", "create"]
+  resources :verifications, only: ["new", "create"]
   
   resources :sessions
   

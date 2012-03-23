@@ -51,6 +51,8 @@ Given /^I go to the sign up page$/ do
   visit '/signup'
 end
 
-Given /^there is a user named "([^"]*)"$/ do |username|
-  Factory(:user, :username => username)
+Given /^there is a a user exists with an email of "([^"]*)"$/ do |email|
+  user = Factory(:user)
+  organization = Factory(:organization, :creator_id => user.id)
+  email = Factory(:email, :address => email, :user => user)
 end

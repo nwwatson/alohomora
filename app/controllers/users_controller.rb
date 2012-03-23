@@ -9,12 +9,10 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       warden.set_user(@user)
-      
-      
       flash[:notice] = I18n.t("alohomora.users.signed_up_but_unconfirmed")
-      
-      redirect_to verifiactions_url
+      redirect_to new_verification_url
     else
+      
       render "new"
     end
   end

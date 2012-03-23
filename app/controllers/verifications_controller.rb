@@ -1,5 +1,5 @@
 class VerificationsController < ApplicationController
-  def show
+  def new
   end
 
   def create

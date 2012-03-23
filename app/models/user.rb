@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :organizations
   has_many :emails
   
-  validates_presence_of :password, on: :create
-  validates_presence_of :emails
+  validates :password, :presence => true, :on => :create, :password_format => true
+  #validates_presence_of :emails
   
   accepts_nested_attributes_for :emails, :organizations
   
@@ -16,4 +16,5 @@ class User < ActiveRecord::Base
   def generate_verification_code
     self.verification_code = Digest::SHA1.hexdigest([Time.now, rand].join)
   end
+
 end
