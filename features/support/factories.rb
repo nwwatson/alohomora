@@ -13,4 +13,6 @@ Factory.define :user do |user|
   user.sequence(:last_name) { |n| "LastName#{n}" }
   user.password "password"
   user.password_confirmation "password"
+  user.emails {|emails| [emails.association(:email)]}
+  
 end
