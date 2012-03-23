@@ -1,7 +1,7 @@
 class PasswordFormatValidator < ActiveModel::EachValidator  
   def validate_each(object, attribute, value)  
-    unless value =~ /^(?=.*\d)(?=.*([a-z]|[A-Z])){8,40}$/
-      object.errors[attribute] << (options[:message] || "must contain on number and one symbol")  
-    end  
+    unless value =~ /^({8,50})$/i  
+      object.errors[attribute] << (options[:message] || "is not formatted properly")  
+    end
   end  
 end

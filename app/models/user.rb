@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   has_many :emails
   
   validates :password, :presence => true, :on => :create, :password_format => true
-  #validates_presence_of :emails
   
   accepts_nested_attributes_for :emails, :organizations
   
