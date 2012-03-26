@@ -4,7 +4,7 @@ Warden::Strategies.add(:password_authenticatable) do
   end
   
   def authenticate!
-    user = User.find_by_email(params['email'])
+    user = User.by_email_address(params['email'])
     if user && user.authenticate(params['password'])
       success! user
     else

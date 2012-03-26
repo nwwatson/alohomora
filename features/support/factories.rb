@@ -1,25 +1,41 @@
 require 'factory_girl'
 
-Factory.define :organization do |org|
-  org.sequence(:name) { |n| "Organization#{n}" }
-end
 
-Factory.define :email do |email|
-  email.sequence(:address) { |n| "user#{n}@entropisoftware.com" }
+FactoryGirl.define do
   
-  factory :with_user do
-    user
-  end  
-end
+  factory :organization do |org|
+    org.sequence(:name) { |n| "Organization#{n}" }
+  end
+  
+  factory :email do |email|
+    email.sequence(:address) { |n| "user#{n}@entropisoftware.com" }
 
-Factory.define :user do |user|
-  user.sequence(:first_name) { |n| "FirstName#{n}" }
-  user.sequence(:last_name) { |n| "LastName#{n}" }
-  user.password "password"
-  user.password_confirmation "password"
+    factory :email_with_user do
+      email.user {|email| email.association(:user) }
+    end
+  end
   
-  factory :with_email
-    user.after_create {|a| [ Factory(:email, :user => a)] }
+  factory :user do |user|
+    user.sequence(:first_name) { |n| "FirstName#{n}" }
+    user.sequence(:last_name) { |n| "LastName#{n}" }
+    user.password "password"
+    user.password_confirmation "password"
+
+    #factory :with_email do
+    #  FactoryGirl.create_list(:email, 1, :user => user)
+    #end
+
   end
   
 end
+
+
+
+
+
+
+
+
+
+
+

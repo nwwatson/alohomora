@@ -7,10 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div>
-<%= flash[:notice] %>
-<%= flash[:error] %>
-</div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+<p>
+<%= render 'shared/session_navigation' %>
+</p>
 <%= yield %>
 
 </body>

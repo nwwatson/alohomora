@@ -3,17 +3,17 @@ Given /^I am not logged in$/ do
 end
 
 Given /^no user exists with an email of "([^"]*)"$/ do |email|
-  User.find(:first, :conditions => { :email => email }).should be_nil
+  User.joins(:emails).where(:emails => {:address => email}).first.should be_nil
 end
 
 When /^I go to the sign in page$/ do
   visit '/signin'
 end
 
-When /^I sign in as "(.*)\/(.*)"$/ do |username, password|
+When /^I sign in as "(.*)\/(.*)"$/ do |email, password|
   step %{I am not logged in}
   step %{I go to the sign in page}
-  step %{I fill in "Username" with "#{username}"}
+  step %{I fill in "Email" with "#{email}"}
   step %{I fill in "Password" with "#{password}"}
   step %{I press "Sign In"}
 end
@@ -27,8 +27,9 @@ Then /^I should be signed out$/ do
   step %{I should not see "Log Out"}
 end
 
-Given /^I am a user named "([^"]*)" with an email "([^"]*)" and password "([^"]*)"$/ do |name, email, password|
-  Factory(:user, :username => name, :email => email, :password => password, :password_confirmation => password)
+Given /^I am a user with an email "([^"]*)" and password "([^"]*)"$/ do |address, password|
+  user = Factory(:user, :password => password, :password_confirmation => password)
+  email = Factory(:email, :address => address, :user => user)
 end
 
 Then /^I should be signed in$/ do
@@ -52,7 +53,7 @@ Given /^I go to the sign up page$/ do
 end
 
 Given /^there is a a user exists with an email of "([^"]*)"$/ do |email|
-  user = Factory(:user)
-  organization = Factory(:organization, :creator_id => user.id)
-  #email = Factory(:email, :address => email, :user => user)
+  #user = Factory(:user)
+  #organization = Factory(:organization, :creator_id => user.id)
+  email = Factory(:email_with_user, :address => email)
 end

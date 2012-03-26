@@ -17,11 +17,22 @@ class User < ActiveRecord::Base
     first_name + " " + last_name
   end
   
+  # Begin Class Methods
+  class << self
+    
+    # Gets a user by its email address
+    def by_email_address(email)
+      User.joins(:emails).where(:emails => {:address => email}).first
+    end
+    
+  end
+  # End Class Methods
+  
+  
   private 
     
     def generate_verification_code
       self.verification_code = Digest::SHA1.hexdigest([Time.now, rand].join)
     end
-  
-
+    
 end
