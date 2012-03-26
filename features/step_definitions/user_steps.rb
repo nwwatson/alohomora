@@ -54,5 +54,5 @@ end
 Given /^there is a a user exists with an email of "([^"]*)"$/ do |email|
   user = Factory(:user)
   organization = Factory(:organization, :creator_id => user.id)
-  email = Factory(:email, :address => email, :user => user)
+  #email = Factory(:email, :address => email, :user => user)
 end

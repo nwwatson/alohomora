@@ -1,214 +1,785 @@
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
 
 
-Started GET "/signout" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
 Processing by SessionsController#destroy as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
 Processing by WelcomeController#index as HTML
-  Rendered welcome/index.html.erb within layouts/application (2.5ms)
-Completed 200 OK in 47ms (Views: 46.3ms | ActiveRecord: 0.0ms)
+  Rendered welcome/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 44ms (Views: 44.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/signup" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
 Processing by UsersController#new as HTML
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (9.6ms)
-Completed 200 OK in 90ms (Views: 13.3ms | ActiveRecord: 0.5ms)
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 95ms (Views: 18.4ms | ActiveRecord: 0.5ms)
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
   [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'user1@entropisoftware.com' LIMIT 1[0m
-  [1m[35mSQL (2.3ms)[0m  INSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["address", "user1@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["user_id", nil]]
-  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
-  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE ("emails"."address" = 'user1@entropisoftware.com' AND "emails"."id" != 1) LIMIT 1[0m
-Binary data inserted for `string` type on column `password_digest`
-Binary data inserted for `string` type on column `verification_code`
-  [1m[35mSQL (0.7ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["first_name", "FirstName1"], ["last_name", "LastName1"], ["password_digest", "$2a$10$hzEAP59FStkf7pxagpYKhupjL7dinoqpqVSyRAEi1xd9jk24kpOA2"], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["verification_code", "f18ee6fbe878934c9b9f57176951572a658afe47"]]
-  [1m[36m (0.1ms)[0m  [1mUPDATE "emails" SET "user_id" = 1, "updated_at" = '2012-03-23 19:31:36.324440' WHERE "emails"."id" = 1[0m
-WHAT UP HOMIE ******************************************************
-BANG! No Error: 0
-  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
-  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["creator_id", 1], ["name", "Organization1"], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00]]
-  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
-  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["user_id", 1]]
-  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-
-
-Started POST "/users" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by UsersController#create as HTML
-  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
-  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
-  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
-  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.4ms)
-Completed 200 OK in 113ms (Views: 5.8ms | ActiveRecord: 0.3ms)
-  [1m[36m (1.8ms)[0m  [1mrollback transaction[0m
-  [1m[35m (0.1ms)[0m  begin transaction
-
-
-Started GET "/signout" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by SessionsController#destroy as HTML
-Redirected to http://www.example.com/
-Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by WelcomeController#index as HTML
-  Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by WelcomeController#index as HTML
-  Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/signup" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by UsersController#new as HTML
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.5ms)
-Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/users" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by UsersController#create as HTML
-  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
-  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
-  [1m[35mEmail Exists (0.1ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
-Binary data inserted for `string` type on column `password_digest`
-Binary data inserted for `string` type on column `verification_code`
-  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$7whOj8xTxh/ohQFBX3WcLOjbei/uyoDO8iiyNI4PVJwlHV8FEQWCq"], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["verification_code", "10d3d43b8e5d1ebb3245328aad78b217337a6f42"]]
-  [1m[35mSQL (0.3ms)[0m  INSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00]]
-  [1m[36m (0.2ms)[0m  [1mINSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (1, 1)[0m
-  [1m[35mSQL (0.2ms)[0m  INSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 19:31:36 UTC +00:00], ["user_id", 1]]
-WHAT UP HOMIE ******************************************************
-BANG! No Error: 0
-  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
-Redirected to http://www.example.com/verifications/new
-Completed 302 Found in 119ms (ActiveRecord: 1.8ms)
-
-
-Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by VerificationsController#new as HTML
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.4ms)
-Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
-  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)  [["address", "user1@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 20:47:02 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 20:47:02 UTC +00:00], ["user_id", nil]]
+Errors are: 0
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (4.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (1.6ms)[0m  rollback transaction
   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
 
 
-Started GET "/signout" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
 Processing by SessionsController#destroy as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:47:02 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.3ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$knUFL81aIEZOLACofmwcaeb9IO3wuiuQUV3s7U/rUwSbG5Hh5DM42"], ["updated_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00], ["verification_code", "1033f6c83a8e5a0a926eeabac840c9be7ce91c68"]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  INSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (1, 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 20:47:03 UTC +00:00], ["user_id", 1]]
+Errors are: 0
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (0.6ms)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/verifications/new
+Completed 302 Found in 127ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by VerificationsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 119ms (Views: 8.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/signup" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
 Processing by UsersController#new as HTML
   Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.1ms)
 Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
 
 
-Started POST "/users" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
 Processing by UsersController#create as HTML
   Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
-  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
-  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
-  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.6ms)
-Completed 200 OK in 108ms (Views: 4.9ms | ActiveRecord: 0.2ms)
-  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
-  [1m[35m (0.0ms)[0m  begin transaction
-
-
-Started GET "/signout" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by SessionsController#destroy as HTML
-Redirected to http://www.example.com/
-Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by WelcomeController#index as HTML
-  Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by WelcomeController#index as HTML
-  Rendered welcome/index.html.erb within layouts/application (0.0ms)
-Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/signup" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by UsersController#new as HTML
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.0ms)
-Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.0ms)
-
-
-Started POST "/users" for 127.0.0.1 at 2012-03-23 15:31:36 -0400
-Processing by UsersController#create as HTML
-  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
-  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
-  [1m[35mEmail Exists (0.2ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEmail Exists (0.1ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
   [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (41.1ms)
-Completed 200 OK in 47ms (Views: 42.8ms | ActiveRecord: 0.3ms)
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 0.2ms)
   [1m[35m (0.1ms)[0m  rollback transaction
   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
 
 
-Started GET "/signout" for 127.0.0.1 at 2012-03-23 15:31:37 -0400
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
 Processing by SessionsController#destroy as HTML
 Redirected to http://www.example.com/
 Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:37 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:47:03 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"testentropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'testentropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 112ms (Views: 6.4ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:52:03 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 43.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:03 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:52:03 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 116ms (Views: 31.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/" for 127.0.0.1 at 2012-03-23 15:31:37 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$KkobxGxZq5snPq/Dd3CW9O8QNhmC8/haJHUCVcVHOEhHrQr9aMJJK"], ["updated_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00], ["verification_code", "3f0e42f356ad9ff574b65292975921ee044a024a"]]
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  INSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (1, 1)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 20:52:26 UTC +00:00], ["user_id", 1]]
+Errors are: 0
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (0.8ms)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/verifications/new
+Completed 302 Found in 200ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by VerificationsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (34.4ms)
+Completed 200 OK in 38ms (Views: 35.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 100ms (Views: 5.2ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEmail Exists (0.2ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:52:26 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"testentropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'testentropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 109ms (Views: 6.2ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:53:01 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:01 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:01 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:53:01 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 92ms (Views: 11.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:53:26 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:26 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:53:26 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[35mSQL (2.6ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$2Hhyx6wcQFXKDMeYenjo9Om9ExzvliOYH69bOmDpOcbqMQS0qfDbC"], ["updated_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00], ["verification_code", "7368309da277f05299117924d30251e497ebcbfa"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  INSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (1, 1)
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 20:53:27 UTC +00:00], ["user_id", 1]]
+Errors are: 0
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (1.5ms)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/verifications/new
+Completed 302 Found in 233ms (ActiveRecord: 4.4ms)
+
+
+Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by VerificationsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (2.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.0ms)
 Completed 200 OK in 2ms (Views: 2.1ms | ActiveRecord: 0.0ms)
 
 
-Started GET "/signup" for 127.0.0.1 at 2012-03-23 15:31:37 -0400
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
 Processing by UsersController#new as HTML
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.5ms)
-Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
 
 
-Started POST "/users" for 127.0.0.1 at 2012-03-23 15:31:37 -0400
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 117ms (Views: 8.7ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEmail Exists (0.1ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 16:53:27 -0400
 Processing by UsersController#create as HTML
   Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"testentropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
   [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
-  [1m[36mEmail Exists (0.2ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'testentropisoftware.com' LIMIT 1[0m
-  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
-  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (10.5ms)
-Completed 200 OK in 118ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'testentropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 115ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 17:01:36 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 46ms (Views: 45.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 98ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["first_name", "FirstName1"], ["last_name", "LastName1"], ["password_digest", "$2a$10$2hlr63b1.clt/s08O/3.Je7sCzb1aTQVdHVl1avT/TSX2st5ehHlK"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["verification_code", "32e0540c5f347435eda12165b6259703020af55a"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEmail Exists (0.1ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'user1@entropisoftware.com' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "user1@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["user_id", 1]]
+Errors are: 0
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (0.9ms)
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["creator_id", 1], ["name", "Organization1"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$ifj98nwVd7deyxApnIW3OepytainhH.oVxqn2tilpmTSHvjQmBMkS"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["verification_code", "eae1e3e49f7fa2f794fbcd4d488c0724af17d5df"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00]]
+  [1m[35m (0.1ms)[0m  INSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (2, 2)
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["user_id", 2]]
+Errors are: 0
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (0.4ms)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/verifications/new
+Completed 302 Found in 148ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by VerificationsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `password_digest`
+Binary data inserted for `string` type on column `verification_code`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "first_name", "last_name", "password_digest", "updated_at", "verification_code") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["first_name", "Wasting"], ["last_name", "Light"], ["password_digest", "$2a$10$2Ipg9xt5V0DpeW15ROa1W.omS/jZ1eRj2aDZOsPflE2JZDvfAbz.e"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["verification_code", "00f9bb64f29d1bd10c11ec71a689596b9613bef3"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "organizations" ("created_at", "creator_id", "name", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["creator_id", nil], ["name", "Entropi Software"], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00]]
+  [1m[35m (0.2ms)[0m  INSERT INTO "organizations_users" ("user_id", "organization_id") VALUES (1, 1)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "emails" ("address", "created_at", "organization_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["address", "test@entropisoftware.com"], ["created_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["organization_id", nil], ["updated_at", Fri, 23 Mar 2012 21:01:37 UTC +00:00], ["user_id", 1]]
+Errors are: 0
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verification_mailer/verification_email.html.erb (0.6ms)
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/verifications/new
+Completed 302 Found in 148ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/verifications/new" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by VerificationsController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/verifications/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 112ms (Views: 9.6ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:37 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 32ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"test@entropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mEmail Exists (0.2ms)[0m  SELECT 1 FROM "emails" WHERE "emails"."address" = 'test@entropisoftware.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 15ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+
+
+Started GET "/signout" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://www.example.com/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by UsersController#new as HTML
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 35ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2012-03-23 17:01:38 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "user"=>{"first_name"=>"Wasting", "last_name"=>"Light", "emails_attributes"=>{"0"=>{"address"=>"testentropisoftware.com"}}, "organizations_attributes"=>{"0"=>{"name"=>"Entropi Software"}}, "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mEmail Exists (0.1ms)[0m  [1mSELECT 1 FROM "emails" WHERE "emails"."address" = 'testentropisoftware.com' LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered /Users/nwatson/Development/github/alohomora/app/views/users/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 112ms (Views: 6.3ms | ActiveRecord: 0.2ms)
   [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
