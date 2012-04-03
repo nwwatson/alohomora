@@ -3,6 +3,11 @@ require 'factory_girl'
 
 FactoryGirl.define do
   
+  factory :article do |article|
+    article.title "Title"
+    article.body "Body"
+  end
+  
   factory :organization do |org|
     org.sequence(:name) { |n| "Organization#{n}" }
   end

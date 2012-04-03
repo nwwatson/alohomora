@@ -9,6 +9,14 @@ Given /^I am on the home page$/ do
   visit '/'
 end
 
+When /^I go to the blog page$/ do
+  visit '/blogs'
+end
+
+When /^I go to the articles page$/ do
+  visit '/articles'
+end
+
 Then /^I should see "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
