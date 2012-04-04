@@ -31,8 +31,11 @@ ActiveRecord::Schema.define(:version => 20120403173312) do
     t.string   "address"
     t.integer  "user_id"
     t.integer  "organization_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "verification_code"
+    t.datetime "verified_at"
+    t.datetime "verified_sent_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "organizations", :force => true do |t|
@@ -51,9 +54,8 @@ ActiveRecord::Schema.define(:version => 20120403173312) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "password_digest"
-    t.string   "verification_code"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

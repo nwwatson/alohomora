@@ -18,11 +18,18 @@ module Alohomora
     
   end
   
+  # This serializes the user in to session for future use
   Warden::Manager.serialize_into_session do |user|
     user.id
   end
-
+  
+  # This gets the current user information from session
   Warden::Manager.serialize_from_session do |id|
     User.find(id)
   end  
+  
+  # This is executed every time the user is authenticated (first time in each session).
+  Warden::Manager.after_authentication do |user,auth,opts|
+
+  end
 end

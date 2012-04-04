@@ -10,9 +10,6 @@ class User < ActiveRecord::Base
   
   has_secure_password
   
-  before_create :generate_verification_code
-  
-  
   def full_name
     first_name + " " + last_name
   end
@@ -27,12 +24,5 @@ class User < ActiveRecord::Base
     
   end
   # End Class Methods
-  
-  
-  private 
-    
-    def generate_verification_code
-      self.verification_code = Digest::SHA1.hexdigest([Time.now, rand].join)
-    end
     
 end
