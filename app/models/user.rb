@@ -1,26 +1,20 @@
 class User < ActiveRecord::Base
-  #attr_accessible :email, :password, :password_confirmation, :emails_attributes, :organizations_attributes
+  attr_accessible :uri, :email, :password, :admin, :password_confirmation, :organizations_attributes
   
   has_and_belongs_to_many :organizations
-  has_many :emails
   
-  validates :password, :presence => true, :on => :create#, :password_format => true
+  validates :password, :presence => true, :on => :create
   
-  accepts_nested_attributes_for :emails, :organizations
+  accepts_nested_attributes_for :organizations
   
   has_secure_password
   
-  def full_name
-    first_name + " " + last_name
+  def admin?
+    self.admin
   end
   
   # Begin Class Methods
   class << self
-    
-    # Gets a user by its email address
-    def by_email_address(email)
-      User.joins(:emails).where(:emails => {:address => email}).first
-    end
     
   end
   # End Class Methods

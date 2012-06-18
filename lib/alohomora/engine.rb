@@ -1,6 +1,6 @@
 require 'warden'
-require 'alohomora/controllers/helpers'
-require 'alohomora/strategies/password_authenticatable'
+#require 'alohomora/controllers/helpers'
+#require 'alohomora/strategies/password_authenticatable'
 
 module Alohomora
   class Engine < ::Rails::Engine
