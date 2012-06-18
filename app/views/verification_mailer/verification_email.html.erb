@@ -1,7 +1,0 @@
-<p>Welcome <%= @email.user.full_name %>!</p>
-
-<p>Thank you for choosing our product. You can confirm your account through the link below:</p>
-
-<p><%= link_to 'Confirm my account', new_verification_url( :verification_code => @email.verification_code) %></p>
-
-<p>Thank you for your business.</p>
