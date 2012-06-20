@@ -4,13 +4,9 @@ Warden::Strategies.add(:password_authenticatable) do
   end
   
   def authenticate!
-    email = Email.get_authentication_email(params['email'])
-    if email && email.user.authenticate(params['password'])
-      if email.verified?
-        success! email.user
-      else
-        fail "Please verify your email address."
-      end
+    user = User.find_by_email(params['email'])
+    if user && user.authenticate(params['password'])
+      success! user
     else
       fail "Invalid email or password"
     end
