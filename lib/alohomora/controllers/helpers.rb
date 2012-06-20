@@ -11,8 +11,6 @@ module Alohomora
         base.extend InstanceMethods 
       end
       
-      
-
       module InstanceMethods
         # The main accessor for the warden proxy instance
         def warden
