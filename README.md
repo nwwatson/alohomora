@@ -22,7 +22,7 @@ Alohomora requires the creation of a user model in your project to use for authe
 Alohomora Implementation Details
 ---------
 
-As mentioned in the install section, Alohomora creates a user model for your application to authenticate. All other models in the application are namespace under "Alohomora", which should reduce the possibility of name collisions between models. If you wish to extend the underlying Alohomora models, it is suggested to create a decorator. For example, if you wish to extend the Alohomora::Organizations model to have a method called organization_administrator? you would would create a file in your rails project:  app/models/organization_decorator.rb
+As mentioned in the install section, Alohomora creates a user model for your application to authenticate. All other models in the application are namespaced under "Alohomora", which should reduce the possibility of name collisions between models. If you wish to extend the underlying Alohomora models, it is suggested to create a decorator. For example, if you wish to extend the Alohomora::Organizations model to have a method called organization_administrator? you would would create a file in your rails project:  app/models/alohomora/organization_decorator.rb
 
     # Use class_eval to add the new method to the class
     Alohomora::Organization.class_eval do
