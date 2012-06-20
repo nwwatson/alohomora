@@ -5,5 +5,6 @@ FactoryGirl.define do
     name "MyString"
     creator_id 1
     active false
+    role_id 1
   end
 end

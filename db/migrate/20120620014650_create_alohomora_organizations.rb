@@ -4,7 +4,7 @@ class CreateAlohomoraOrganizations < ActiveRecord::Migration
       t.string :name
       t.integer :creator_id
       t.boolean :active
-
+      t.integer :role_id
       t.timestamps
     end
   end
