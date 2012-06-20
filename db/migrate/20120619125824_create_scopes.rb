@@ -1,6 +1,6 @@
 class CreateScopes < ActiveRecord::Migration
   def change
-    create_table :scopes do |t|
+    create_table :alohomora_scopes do |t|
       t.string :name
       t.string :uri
 

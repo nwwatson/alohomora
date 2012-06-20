@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Client do
-  before  { @client = Factory.create(:client) }
+describe Alohomora::Client do
+  before  { @client = FactoryGirl.create(:client) }
   subject { @client }
 
   it { should validate_presence_of(:name) }
@@ -24,10 +24,10 @@ describe Client do
 
   it { should_not be_blocked }
   context "#block!" do
-    before { @authorization         = Factory.create(:oauth_authorization) }
-    before { @another_authorization = Factory.create(:oauth_authorization, client_uri: ANOTHER_CLIENT_URI) }
-    before { @token                 = Factory.create(:oauth_token) }
-    before { @another_token         = Factory.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI) }
+    before { @authorization         = FactoryGirl.create(:oauth_authorization) }
+    before { @another_authorization = FactoryGirl.create(:oauth_authorization, client_uri: ANOTHER_CLIENT_URI) }
+    before { @token                 = FactoryGirl.create(:oauth_token) }
+    before { @another_token         = FactoryGirl.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI) }
 
     before { subject.block! }
 
@@ -69,33 +69,14 @@ describe Client do
     it { found.should_not be_nil }
   end
 
-  context ".where_scope" do
-    context "with complete scope" do
-      let(:scope) { ALL_SCOPE }
-      subject { Client.where_scope(scope).first }
-      it { should_not be_nil }
-    end
-
-    context "with partial scope" do
-      let(:scope) { ["pizzas/show", "pizzas/create"] }
-      subject { Client.where_scope(scope).first }
-      it { should_not be_nil }
-    end
-
-    context "with invalid scope" do
-      let(:scope) { ["type.write", "reresource.not_existingg"] }
-      subject { Client.where_scope(scope).first }
-      it { should be_nil }
-    end
-  end
 
   context "#destroy" do
-    subject { Factory.create(:client) }
+    subject { FactoryGirl.create(:client) }
     before do
       OauthAuthorization.destroy_all
-      3.times { Factory.create(:oauth_authorization) }
+      3.times { FactoryGirl.create(:oauth_authorization) }
       OauthToken.destroy_all
-      3.times { Factory.create(:oauth_token) }
+      3.times { FactoryGirl.create(:oauth_token) }
     end
 
     it "should remove related authorizations" do

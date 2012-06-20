@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe OauthToken do
-  before  { @token = Factory.create(:oauth_token) }
+describe Alohomora::OauthToken do
+  before  { @token = FactoryGirl.create(:oauth_token) }
   subject { @token }
 
   it { should validate_presence_of(:client_uri) }
@@ -19,7 +19,7 @@ describe OauthToken do
   end
 
   context ".block_client!" do
-    before { @another_client_token = Factory.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI) }
+    before { @another_client_token = FactoryGirl.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI) }
     before { OauthToken.block_client!(CLIENT_URI) }
 
     it { @token.reload.should be_blocked }
@@ -27,8 +27,8 @@ describe OauthToken do
   end
 
   context ".block_access!" do
-    before { @another_client_token = Factory.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI)}
-    before { @another_owner_token  = Factory.create(:oauth_token, resource_owner_uri: ANOTHER_USER_URI) }
+    before { @another_client_token = FactoryGirl.create(:oauth_token, client_uri: ANOTHER_CLIENT_URI)}
+    before { @another_owner_token  = FactoryGirl.create(:oauth_token, resource_owner_uri: ANOTHER_USER_URI) }
     before { OauthToken.block_access!(CLIENT_URI, USER_URI) }
 
     it { @token.reload.should be_blocked }

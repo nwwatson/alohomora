@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Scope do
+describe Alohomora::Scope do
 
 end

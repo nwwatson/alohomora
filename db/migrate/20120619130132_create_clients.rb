@@ -1,6 +1,6 @@
 class CreateClients < ActiveRecord::Migration
   def change
-    create_table :clients do |t|
+    create_table :alohomora_clients do |t|
       t.string :uri
       t.string :name
       t.integer :created_from
