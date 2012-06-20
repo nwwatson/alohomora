@@ -10,7 +10,7 @@ module Alohomora
     initializer "alohomora.add_middleware" do |app|
       app.config.app_middleware.use Warden::Manager do |manager|
         manager.default_strategies :password_authenticatable
-        manager.failure_app = lambda { |env| SessionsController.action(:new).call(env) }
+        manager.failure_app = lambda { |env| SessionsController.action(:failure).call(env) }
       end
     end
 
