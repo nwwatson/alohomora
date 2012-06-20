@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: true
   
+  has_and_belongs_to_many :organizations, class_name: "Alohomora::Organization"
+  
   has_secure_password
   
   def admin?
