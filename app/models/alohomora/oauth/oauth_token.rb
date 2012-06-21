@@ -1,4 +1,4 @@
-class Alohomora::OauthToken < ActiveRecord::Base
+class Alohomora::OauthToken < AlohomoraModel
   attr_accessible :blocked, :client_uri, :expire_at, :refresh_token, :resource_owner_uri, :token
   
   before_create :random_token

@@ -1,4 +1,4 @@
-class Alohomora::OauthDailyRequest < ActiveRecord::Base
+class Alohomora::OauthDailyRequest < AlohomoraModel
   attr_accessible :created_at, :day, :month, :time_id, :times, :year
   
   # resource owner's client access

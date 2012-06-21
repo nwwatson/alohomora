@@ -1,4 +1,4 @@
-class Alohomora::OauthAccess < ActiveRecord::Base
+class Alohomora::OauthAccess < AlohomoraModel
   attr_accessible :blocked, :client_uri, :resource_owner_uri
   
   has_many :oauth_daily_requests

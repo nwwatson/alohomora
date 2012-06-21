@@ -1,4 +1,4 @@
-class Alohomora::Scope < ActiveRecord::Base
+class Alohomora::Scope < AlohomoraModel
   attr_accessible :name, :uri
   
   validates :name, presence: true

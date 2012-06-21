@@ -1,4 +1,4 @@
-class Alohomora::Client < ActiveRecord::Base
+class Alohomora::Client < AlohomoraModel
   attr_accessible :blocked, :created_from, :granted_times, :info, :name, :redirect_uri, :revoked_times, :secret, :site_uri, :uri
   attr_accessor :scope, :scope_values
 

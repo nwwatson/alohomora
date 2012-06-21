@@ -1,4 +1,4 @@
-class Alohomora::OauthRefreshToken < ActiveRecord::Base
+class Alohomora::OauthRefreshToken < AlohomoraModel
   attr_accessible :access_token
   
   validates :access_token, presence: true

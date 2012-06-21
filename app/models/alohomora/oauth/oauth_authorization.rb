@@ -1,4 +1,4 @@
-class Alohomora::OauthAuthorization < ActiveRecord::Base
+class Alohomora::OauthAuthorization < AlohomoraModel
   attr_accessible :blocked, :client_uri, :code, :expired_at, :resource_owner_uri
   
   validates :client_uri, presence: true, url: true
