@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :email, uniqueness: true
   
-  has_and_belongs_to_many :organizations, class_name: "Alohomora::Organization"
+  has_and_belongs_to_many   :organizations, 
+                            class_name: "Alohomora::Organization", 
+                            join_table: "alohomora_organizations_users"
   
   has_secure_password
   

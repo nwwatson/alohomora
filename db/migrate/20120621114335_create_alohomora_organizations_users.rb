@@ -1,8 +1,8 @@
 class CreateAlohomoraOrganizationsUsers < ActiveRecord::Migration
-  def create
+  def change
     create_table :alohomora_organizations_users do |t|
-      t.integer organization_id
-      t.integer user_id
+      t.integer :organization_id
+      t.integer :user_id
     end
     
     add_index :alohomora_organizations_users, :organization_id
