@@ -1,0 +1,179 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.2ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120619123937)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "email" varchar(255), "name" varchar(255), "password_digest" varchar(255), "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619123937')
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateScopes (20120619125824)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "scopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619125824')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateClients (20120619130132)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "name" varchar(255), "created_from" integer, "secret" varchar(255), "site_uri" varchar(255), "redirect_uri" varchar(255), "info" varchar(255), "granted_times" integer, "revoked_times" integer, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619130132')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthAccesses (20120619130943)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_accesses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619130943')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthDailyRequests (20120619131709)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_daily_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" time NOT NULL, "time_id" time, "day" integer, "month" integer, "year" integer, "times" integer, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619131709')
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthAuthorizations (20120619132119)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "code" varchar(255), "expired_at" time, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132119')
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthRefreshTokens (20120619132331)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_refresh_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "refresh_token" varchar(255), "access_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132331')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthTokens (20120619132558)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "token" varchar(255), "refresh_token" varchar(255), "expire_at" date, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132558')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  select sqlite_version(*)
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_oauth_accesses")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("alohomora_oauth_authorizations")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_oauth_daily_requests")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("alohomora_oauth_refresh_tokens")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_oauth_tokens")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("clients")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("scopes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "alohomora_oauth_accesses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "alohomora_oauth_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "code" varchar(255), "expired_at" time, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "alohomora_oauth_daily_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" time NOT NULL, "time_id" time, "day" integer, "month" integer, "year" integer, "times" integer, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "alohomora_oauth_refresh_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "refresh_token" varchar(255), "access_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "alohomora_oauth_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "token" varchar(255), "refresh_token" varchar(255), "expire_at" date, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "name" varchar(255), "created_from" integer, "secret" varchar(255), "site_uri" varchar(255), "redirect_uri" varchar(255), "info" varchar(255), "granted_times" integer, "revoked_times" integer, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "scopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "email" varchar(255), "name" varchar(255), "password_digest" varchar(255), "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120619132558')[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateAlohomoraOauthTokens (20120619132558)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  DROP TABLE "alohomora_oauth_tokens"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120619132558'[0m
+  [1m[35m (2.4ms)[0m  commit transaction
+Migrating to CreateAlohomoraOauthRefreshTokens (20120619132331)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "alohomora_oauth_refresh_tokens"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120619132331'[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateAlohomoraOauthAuthorizations (20120619132119)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  DROP TABLE "alohomora_oauth_authorizations"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120619132119'[0m
+  [1m[35m (1.0ms)[0m  commit transaction
+Migrating to CreateAlohomoraOauthDailyRequests (20120619131709)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "alohomora_oauth_daily_requests"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120619131709'[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateAlohomoraOauthAccesses (20120619130943)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "alohomora_oauth_accesses"
+  [1m[36m (0.1ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20120619130943'[0m
+  [1m[35m (1.1ms)[0m  commit transaction
+Migrating to CreateClients (20120619130132)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "alohomora_clients"
+SQLite3::SQLException: no such table: alohomora_clients: DROP TABLE "alohomora_clients"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (2.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20120619123937)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "email" varchar(255), "name" varchar(255), "password_digest" varchar(255), "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619123937')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateScopes (20120619125824)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_scopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619125824')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateClients (20120619130132)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "name" varchar(255), "created_from" integer, "secret" varchar(255), "site_uri" varchar(255), "redirect_uri" varchar(255), "info" varchar(255), "granted_times" integer, "revoked_times" integer, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619130132')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthAccesses (20120619130943)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "alohomora_oauth_accesses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619130943')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthDailyRequests (20120619131709)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_daily_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" time NOT NULL, "time_id" time, "day" integer, "month" integer, "year" integer, "times" integer, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619131709')
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthAuthorizations (20120619132119)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "alohomora_oauth_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "code" varchar(255), "expired_at" time, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132119')
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthRefreshTokens (20120619132331)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_refresh_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "refresh_token" varchar(255), "access_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132331')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAlohomoraOauthTokens (20120619132558)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "alohomora_oauth_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "token" varchar(255), "refresh_token" varchar(255), "expire_at" date, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20120619132558')
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_clients")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("alohomora_oauth_accesses")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_oauth_authorizations")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("alohomora_oauth_daily_requests")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_oauth_refresh_tokens")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("alohomora_oauth_tokens")[0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("alohomora_scopes")
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+Connecting to database specified by database.yml
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "alohomora_clients" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "name" varchar(255), "created_from" integer, "secret" varchar(255), "site_uri" varchar(255), "redirect_uri" varchar(255), "info" varchar(255), "granted_times" integer, "revoked_times" integer, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "alohomora_oauth_accesses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "alohomora_oauth_authorizations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "code" varchar(255), "expired_at" time, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "alohomora_oauth_daily_requests" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" time NOT NULL, "time_id" time, "day" integer, "month" integer, "year" integer, "times" integer, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "alohomora_oauth_refresh_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "refresh_token" varchar(255), "access_token" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "alohomora_oauth_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "client_uri" varchar(255), "resource_owner_uri" varchar(255), "token" varchar(255), "refresh_token" varchar(255), "expire_at" date, "blocked" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "alohomora_scopes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "uri" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "uri" varchar(255), "email" varchar(255), "name" varchar(255), "password_digest" varchar(255), "admin" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20120619132558')[0m
