@@ -5,6 +5,14 @@ source "http://rubygems.org"
 # development dependencies will be added by default to the :development group.
 gemspec
 
+# Testing
+gem "rspec-rails", :group => [:test, :development]
+gem "factory_girl_rails", :group => [:test, :development]
+group :test do
+  gem "capybara"
+  gem "guard-rspec"
+end
+
 # jquery-rails is used by the dummy application
 gem "jquery-rails"
 
@@ -14,4 +22,4 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+# gem 'debugger'
