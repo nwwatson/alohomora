@@ -8,7 +8,7 @@ class Alohomora::Organization < AlohomoraModel
     
     # Requests a specific organization where the user has access to the information
     def get_user_organziation(org_id, user)
-      self.joins(:users).where(id: org_id, users: {id: user.id})
+      self.joins(:users).where(id: org_id, users: {id: user.id}).first
     end
     
     
