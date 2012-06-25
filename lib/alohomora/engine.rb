@@ -1,6 +1,17 @@
 require 'warden'
 module Alohomora
   class Engine < ::Rails::Engine
+    
+    config.autoload_paths += %W(#{config.root}/lib)
+
+    def self.activate
+      Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
+        Rails.env.production? ? require(c) : load(c)
+      end
+    end
+
+    config.to_prepare &method(:activate).to_proc
+    
     config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
@@ -17,6 +28,8 @@ module Alohomora
     initializer "alohomora.extend.action_controller" do |app|
       ActionController::Base.send(:include, Alohomora::Controllers::Helpers)
     end
+    
+    
   end
   
   # This serializes the user in to session for future use
