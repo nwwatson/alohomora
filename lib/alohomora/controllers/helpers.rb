@@ -22,6 +22,21 @@ module Alohomora
         warden.authenticate?
       end
       
+      # Checks to see if the user is a member of a given organization
+      def member_of?(organization)
+        current_user.organizations.where(:alohomora_organizations => {:id => org.id}).exists?
+      end
+      
+      # Check to see if the current user is a member of the requested organization. By default
+      # it looks for the organization_id in the params has. This is helpfult for APIs where
+      # resources are nested under the organziation.
+      def organization_authorization!(organization_id=params[:organization_id])
+        unless current_user.organizations.where(:alohomora_organizations => {:id => organization_id}).exists?
+          throw(:warden, :message => "User does not have access to the requested organization")
+        end
+      end
+    
+      # Authenticates a user. 
       def authenticate!(opts={})
         warden.authenticate!(opts) #if !alohomora_controller? || opts.delete(:force)
       end
