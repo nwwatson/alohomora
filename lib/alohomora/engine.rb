@@ -1,6 +1,8 @@
 require 'warden'
 module Alohomora
   class Engine < ::Rails::Engine
+    isolate_namespace Alohomora
+    engine_name 'alohomora'
     
     config.autoload_paths += %W(#{config.root}/lib)
 
@@ -21,7 +23,7 @@ module Alohomora
     initializer "alohomora.add_middleware" do |app|
       app.config.app_middleware.use Warden::Manager do |manager|
         manager.default_strategies :password_authenticatable
-        manager.failure_app = lambda { |env| SessionsController.action(:failure).call(env) }
+        manager.failure_app = lambda { |env| Alohomora::SessionsController.action(:new).call(env) }
       end
     end
 
