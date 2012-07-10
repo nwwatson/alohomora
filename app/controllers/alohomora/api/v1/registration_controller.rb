@@ -16,7 +16,7 @@ class Alohomora::Api::V1::UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      respond_with(@user, :responder => ALohomora::Responder)
+      render :json => { :successs => true }, :status => :created
     else
       render :json => { :success => false, :errors => @user.errors }, :status => :unprocessable_entity
     end
