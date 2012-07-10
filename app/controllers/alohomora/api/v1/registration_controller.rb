@@ -2,7 +2,7 @@ class Alohomora::Api::V1::UsersController < ApplicationController
   respond_to :json
   before_filter :authenticate!, :organization_authorization!
   
-  # This method creates a Organization with user account within the system
+  # This method creates a User with an organizaiton
   # {
   #   "email": "example@email.com"
   #   "name": "John Doe"
