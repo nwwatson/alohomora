@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :admin, :email, :name, :password, :password_confirmation, :uri, :organizations_attributes
+  attr_accessible :admin, :email, :name, :password, :password_confirmation, :uri, :organizations_attributes, :organizations
   
   validates :password, :presence => true, :on => :create
   validates :email, presence: true

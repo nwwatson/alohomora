@@ -13,5 +13,9 @@ module Alohomora
       env['warden'].logout
       redirect_to root_url, notice: "Signed out successfully."
     end
+    
+    def failure
+      return render :json => {:success => false, :errors => ["Login failed."]}, :status => 401
+    end
   end
 end

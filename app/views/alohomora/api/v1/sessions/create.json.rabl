@@ -8,7 +8,7 @@ child(@user) do
   if @user.organizations
     node(:organizations) do
       @user.organizations.map do |org|
-        partial 'alohomora/api/v1/organizations/organization', object: org, root: false
+        partial 'alohomora/api/v1/sessions/organization', object: org, root: false
       end
     end
   end 
