@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 3.2.6"
   s.add_dependency "bcrypt-ruby", "~> 3.0"
   s.add_dependency "warden", "~> 1.1.1"
+  s.add_dependency "rabl", "~> 0.6.13"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
