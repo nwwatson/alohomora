@@ -1,4 +1,15 @@
 Alohomora::Engine.routes.draw do
+  namespace :api do
+    namespace :v1 do
+      resources :sessions, controller: "alohomora/api/v1/sessions", only: [:create]
+      resources :registrations, controller: "alohomora/api/v1/registrations", only: [:create]
+      resources :organizations do
+        resources :users, controller: "alohomora/api/v1/users"
+      end      
+       match "/sessions/destroy", to: "sessions#destroy", via: :get
+    end
+  end
+  
   resources :users
   resources :verifications, only: ["new", "create"]
   
