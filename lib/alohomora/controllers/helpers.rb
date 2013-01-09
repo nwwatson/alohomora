@@ -5,6 +5,7 @@ module Alohomora
       
       included do
         helper_method :warden, :signed_in?
+        helper_method :current_user
       end
       
       # The main accessor for the warden proxy instance
