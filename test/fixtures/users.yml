@@ -1,0 +1,8 @@
+<% 3.times do |i| %>
+user_<%= i %>:
+  name: <%= "User Nr#{i}" %>
+  email: <%= "user#{i}@pfm.com" %>
+  password_digest: "changeME123"
+  time_zone: "America/New_York"
+  locale: "en"
+<% end %>

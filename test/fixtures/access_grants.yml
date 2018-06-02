@@ -1,0 +1,6 @@
+<% 3.times do |i| %>
+access_grant_<%= i %>:
+  user: <%= "user_#{i}" %>
+  token: <%= SecureRandom.base58(24) %>
+  expires_at: <%= Time.now + 10.minutes %>
+<% end %>

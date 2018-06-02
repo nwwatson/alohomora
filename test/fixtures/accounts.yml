@@ -1,0 +1,7 @@
+<% 3.times do |i| %>
+account_<%= i %>:
+  name: <%= "User Nr#{i} Account"  %>
+  slug: <%= "user_nr#{i}_account" %>
+  active: true
+  created_by: <%= "user_#{i}" %>
+<% end %>
