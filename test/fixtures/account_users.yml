@@ -1,0 +1,6 @@
+<% 3.times do |i| %>
+account_user_<%= i %>_<%= i %>:
+  account: <%= "account_#{i}" %>
+  user: <%= "user_#{i}" %>
+  role: 1
+<% end %>
