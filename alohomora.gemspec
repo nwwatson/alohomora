@@ -1,6 +1,6 @@
-$:.push File.expand_path("../lib", __FILE__)
+$:.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
+# Maintain your gem"s version:
 require "alohomora/version"
 
 # Describe your gem and declare its dependencies:
@@ -8,20 +8,19 @@ Gem::Specification.new do |s|
   s.name        = "alohomora"
   s.version     = Alohomora::VERSION
   s.authors     = ["Nicholas W. Watson"]
-  s.email       = ["nick@entropi.co"]
-  s.homepage    = "http://github.com/entropillc/alohomora"
-  s.summary     = "Authentication, Organization Management, OAuth Provider"
-  s.description = "Alohomora (AL-o-ho-MOR-ah) is an authentication gem based on warden that provides for the ability to manage users within organizations for Software As A Service applications"
+  s.email       = ["nicholas.w.watson@me.com"]
+  s.homepage    = "https://github.com/nwwatson/alohomora"
+  s.summary     = "Gem for accounts and authentication"
+  s.description = "Alohomora (AL-o-ho-MOR-ah) is a Rails plugin for quickly getting up and running with accounts/authentication."
+  s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
-  s.test_files = Dir["spec/**/*"]
+  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "~> 3.2.6"
-  s.add_dependency "bcrypt-ruby", "~> 3.0"
-  s.add_dependency "warden", "~> 1.1.1"
-  s.add_dependency "rabl", "~> 0.6.13"
+  s.add_dependency "rails", "~> 5.2.0"
 
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency "rspec-rails"
-  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "guard", "2.14.2"
+  s.add_development_dependency "guard-rails", "~> 0.8.1"
+  s.add_development_dependency "guard-minitest"
+  s.add_development_dependency "annotate", "~> 2.7", ">= 2.7.2"
 end
