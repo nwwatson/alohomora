@@ -1,5 +1,5 @@
-Hello!
+<%= t('.greeting', name: @user.name) %>
 
-Welcome. Click on link below to verify your account.
+<%= link_to t('.verfiy_link', name: @user.email), session_url(token: @access_grant.token) %>
 
-<%= session_url(token: @access_grant.token) %>
+<%= t('.body') %>

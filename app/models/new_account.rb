@@ -38,7 +38,7 @@ class NewAccount
   private
 
   def access_grant_notification
-    @access_grant = AccessGrant.create!(user: @user, expires_at: Time.now + 10.minutes)
+    @access_grant = AccessGrant.generate(user: @user)
     NewAccountMailer.notify(@user, @access_grant).deliver_now
     return true
   end

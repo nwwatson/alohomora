@@ -1,5 +1,11 @@
-<p>Hello!</p>
+<p>
+  <%= <%= t('.greeting', name: @user.name) %> %>
+</p>
 
-<p>You asked us to send you a magic link for quickly signing in. Your wish is our command!</p>
+<p>
+  <%= link_to t('.login_link', name: @user.email), session_url(token: @access_grant.token) %>
+</p>
 
-<p><%= session_url(token: @access_grant.token) %></p>
+<p>
+  <%= t('.body') %>
+</p>

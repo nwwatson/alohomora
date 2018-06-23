@@ -18,5 +18,10 @@ class AccessGrant < ApplicationRecord
       AccessGrant.create!(user: user, expires_at: Time.now + exipry.minutes)
     end
 
+    def generate_and_notify(user, expiry)
+      access_grant = AccessGrant.generate(user, expiry)
+      AccessGrantMailer.notify(user, access_grant).deliver_now
+    end
+
   end
 end

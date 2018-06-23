@@ -1,5 +1,11 @@
-<p>Hello!</p>
+<p>
+  <%= <%= t('.greeting', name: @user.name) %> %>
+</p>
 
-<p>Welcome. Click on link below to verify your account.</p>
+<p>
+  <%= link_to t('.verfiy_link', name: @user.email), session_url(token: @access_grant.token) %>
+</p>
 
-<p><%= session_url(token: @access_grant.token) %></p>
+<p>
+  <%= t('.body') %>
+</p>

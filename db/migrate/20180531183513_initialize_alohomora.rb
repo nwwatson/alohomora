@@ -39,6 +39,7 @@ class InitializeAlohomora < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :email, null: false
       t.string :password_digest, null: false
+      t.boolean :require_password_reset, default: false
       t.string :time_zone, null: false, default: "America/New_York"
       t.string :locale, null: false, default: :en
 
