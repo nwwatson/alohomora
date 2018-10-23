@@ -1,5 +1,6 @@
 class ChangePassword
   include ActiveModel::Model
+  include Alohomora::Validators
 
   attr_accessor :password, :password_confirmation, :user
 

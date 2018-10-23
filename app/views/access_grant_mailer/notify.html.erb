@@ -1,9 +1,9 @@
 <p>
-  <%= <%= t('.greeting', name: @user.name) %> %>
+  <%= t('.greeting', name: @user.name) %>
 </p>
 
 <p>
-  <%= link_to t('.login_link', name: @user.email), session_url(token: @access_grant.token) %>
+  <%= link_to t('.login_link', email: @user.email), session_url(token: @access_grant.token) %>
 </p>
 
 <p>

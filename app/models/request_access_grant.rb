@@ -1,11 +1,12 @@
 class RequestAccessGrant
   include ActiveModel::Model
+  include Alohomora::Validators
 
   attr_accessor :email, :user, :access_grant
 
   validates :email, presence: true, email: true
 
-  def request
+  def request!
     return unless valid?
 
     @user = User.find_by(email: email)

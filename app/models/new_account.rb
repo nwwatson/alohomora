@@ -1,10 +1,13 @@
 class NewAccount
   include ActiveModel::Model
+  include Alohomora::Validators
 
   attr_accessor :name, :email, :company, :access_grant
 
   validates :name, presence: true
-  validates :email, presence: true, email: true
+  validates :email,
+            presence: true,
+            email: true
 
   validate :unique_email_address
 
@@ -12,8 +15,12 @@ class NewAccount
     return unless valid?
 
     ActiveRecord::Base.transaction do
+      strong_password = SecureRandom.base64(20)
+
       user.name = name
       user.email = email
+      user.password = strong_password
+      user.password_confirmation = strong_password
       user.save!
 
       account.name = account_name
@@ -38,7 +45,7 @@ class NewAccount
   private
 
   def access_grant_notification
-    @access_grant = AccessGrant.generate(user: @user)
+    @access_grant = AccessGrant.generate(@user)
     NewAccountMailer.notify(@user, @access_grant).deliver_now
     return true
   end

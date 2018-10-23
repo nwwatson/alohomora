@@ -1,5 +1,6 @@
 class PasswordReset
   include ActiveModel::Model
+  include Alohomora::Validators
 
   attr_accessor :password_reset_token,
                 :password,

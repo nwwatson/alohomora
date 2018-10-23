@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Alohomora::Validators
 
+  has_secure_password
+
   has_many :access_grants, dependent: :destroy
   has_many :access_tokens, dependent: :destroy
   has_many :account_users
@@ -17,6 +19,12 @@ class User < ApplicationRecord
             length: { minimum: 8 },
             password_complexity: true,
             on: :create
+
+  scope :default_accounts, -> { joins(account_users: :account).where(account_users: { default: true })}
+
+  def default_account
+    Account.default_account_for self
+  end
 
   class << self
     def default_account

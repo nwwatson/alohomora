@@ -5,6 +5,11 @@ module Authenticate
     include CookieAuthentication, TokenAuthentication
 
     before_action :authenticate_request
+    helper_method :valid_session?
+  end
+
+  def valid_session?
+    Current.user.present? && Current.account.present?
   end
 
   private

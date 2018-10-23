@@ -1,6 +1,19 @@
 module Alohomora
   module Concerns
     module Revocable
+      extend ActiveSupport::Concern
+
+      included do
+        scope :valid_token, ->() { where(revoked_at: nil)}
+      end
+
+      class_methods do
+        def revoke(token)
+         t = self.find_by(token: token)
+         t.revoke! if t
+        end
+      end
+
       # Revokes the object (updates `:revoked_at` attribute setting its value
       # to the specific time).
       #

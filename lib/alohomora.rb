@@ -1,7 +1,11 @@
 require 'alohomora/engine'
+#require 'alohomora/validators/email_validator'
 require 'alohomora/validators/password_complexity_validator'
 
 module Alohomora
+  mattr_accessor :email_from_address
+  @@email_from_address = "from@example.com"
+
   mattr_accessor :session_expiry_in_minutes
   @@session_expiry_in_minutes = 30
 
@@ -15,6 +19,7 @@ module Alohomora
     autoload :Expirable,        'alohomora/concerns/expirable'
     autoload :HasAccount,       'alohomora/concerns/has_account'
     autoload :HasCreator,       'alohomora/concerns/has_creator'
+    autoload :HasJwtToken,      'alohomora/concerns/has_jwt_token'
     autoload :HasUser,          'alohomora/concerns/has_user'
     autoload :Revocable,        'alohomora/concerns/revocable'
     autoload :Slugable,         'alohomora/concerns/slugable'

@@ -1,5 +1,6 @@
 class PasswordResetRequest
   include ActiveModel::Model
+  include Alohomora::Validators
 
   PASSWORD_RESET_ACCESS_TOKEN_EXPIRY = 5
 

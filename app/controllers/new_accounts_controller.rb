@@ -1,4 +1,5 @@
 class NewAccountsController < ApplicationController
+  skip_before_action :authenticate_request
 
   def show
     @new_account = NewAccount.new
@@ -9,9 +10,10 @@ class NewAccountsController < ApplicationController
 
     unless @new_account.save
       render :show
+    else
+      render status: :created
     end
 
-    render status: :created
   end
 
   private

@@ -1,5 +1,5 @@
 <%= t('.greeting', name: @user.name) %>
 
-<%= link_to t('.verfiy_link', name: @user.email), session_url(token: @access_grant.token) %>
+<%= link_to t('.verfiy_link', email: @user.email), session_url(token: @access_grant.token) %>
 
 <%= t('.body') %>

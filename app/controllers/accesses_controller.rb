@@ -1,4 +1,6 @@
 class AccessesController < ApplicationController
+  skip_before_action :authenticate_request, only: [:show, :create]
+
   def show
     @request_token = RequestAccessGrant.new
   end
